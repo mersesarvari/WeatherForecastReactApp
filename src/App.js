@@ -3,21 +3,21 @@ import "./App.css";
 import WeatherCard from "./components/WeatherCard";
 import WeatherForm from "./components/WeatherForm";
 
-export const employeeContext = React.createContext();
+export const weatherContext = React.createContext();
 
 function App() {
-  const [employee, setEmployee] = useState({});
+  const [weather, setWeather] = useState({});
 
   return (
     <div className="App">
       <header className="App-header">
-        <div>
-          <employeeContext.Provider
-            value={{ data: employee, updateEmployee: setEmployee }}
+        <div className="body">
+          <weatherContext.Provider
+            value={{ data: weather, updateWeather: setWeather }}
           >
             <WeatherForm />
             <WeatherCard />
-          </employeeContext.Provider>
+          </weatherContext.Provider>
         </div>
       </header>
     </div>

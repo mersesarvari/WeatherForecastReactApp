@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { employeeContext, WeatherContext } from "../App";
+import { weatherContext } from "../App";
 import ForecastTable from "./ForecastTable";
 
 const WeatherCard = () => {
-  let context = useContext(employeeContext);
+  let context = useContext(weatherContext);
 
   return <>{Object.keys(context.data).length > 0 && <ForecastTable />}</>;
 };

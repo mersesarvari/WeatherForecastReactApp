@@ -6,11 +6,11 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { employeeContext } from "../App";
+import { weatherContext } from "../App";
 import { Typography } from "@mui/material";
 
 export default function ForecastTable() {
-  let context = React.useContext(employeeContext);
+  let context = React.useContext(weatherContext);
   function TableData() {
     var indents = [];
 
@@ -38,9 +38,13 @@ export default function ForecastTable() {
   }
   return (
     <>
-      <TableContainer component={Paper} className="forecastTable">
+      <TableContainer
+        component={Paper}
+        className="forecastTable"
+        sx={{ display: { xs: "inline", md: "block" } }}
+      >
         <Typography className="tableinfotext">Current weather</Typography>
-        <Table size="small" aria-label="a dense table">
+        <Table size="extra-small">
           <TableHead>
             <TableRow>
               <TableCell align="left">Time</TableCell>
@@ -50,9 +54,7 @@ export default function ForecastTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            <TableRow
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
+            <TableRow>
               <TableCell align="center">
                 {context.data.current_weather.time}
               </TableCell>
@@ -71,13 +73,17 @@ export default function ForecastTable() {
           </TableBody>
         </Table>
       </TableContainer>
-      <TableContainer component={Paper} className="forecastTable">
+      <TableContainer
+        component={Paper}
+        className="forecastTable"
+        sx={{ display: { xs: "inline", md: "block" } }}
+      >
         <Typography className="tableinfotext">
           Weatherforecast for the next
           {" " + context.data.hourly.time.length / 24} days (
           {context.data.hourly.time.length} hours)
         </Typography>
-        <Table size="small" aria-label="a dense table">
+        <Table size="extra-small">
           <TableHead>
             <TableRow>
               <TableCell align="left">Time</TableCell>

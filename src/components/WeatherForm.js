@@ -1,6 +1,6 @@
 import WeatherForecastModel from "../models/WeatherForecastModel";
 import React, { useState, useContext, useRef } from "react";
-import WeatherContext, { employeeContext } from "../App";
+import { weatherContext } from "../App";
 import {
   Box,
   Button,
@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 
 const WeatherForm = () => {
-  let context = useContext(employeeContext);
+  let context = useContext(weatherContext);
   const [lng, setLng] = React.useState(0.0);
   const [lat, setLat] = React.useState(0.0);
   const [celsius, setCelsius] = React.useState(true);
@@ -28,7 +28,7 @@ const WeatherForm = () => {
       days,
       celsius
     );
-    await context.updateEmployee(forecast);
+    await context.updateWeather(forecast);
   };
   const handleLng = (event) => {
     setLng(event.target.value);
